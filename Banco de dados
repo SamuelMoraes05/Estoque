@@ -1,0 +1,68 @@
+create database matheus;
+use matheus;
+
+
+
+create table tb_cadUsuario(
+id_Usuario int unsigned not null primary key auto_increment,
+nome_Usuario varchar(255),
+dtNasc_Usuario varchar(15),
+email_Usuario varchar(255)unique,
+senha_Usuario varchar(80),
+dataCad_Usuario TIMESTAMP DEFAULT(CURRENT_TIMESTAMP())
+);
+
+create table tb_produtos(
+id_produto int unsigned not null primary key auto_increment,
+nome_produto varchar(40),
+desc_produto varchar(255),
+cod_produto varchar(30) unique,
+quant_produto varchar(10),
+fileira_produto varchar(70),
+setor_produto varchar(70),
+uso_produto varchar(5),
+unidade_produto varchar(20),
+anotacao_produto varchar(255)
+);
+
+
+create table tb_chaves(
+id_chave int unsigned not null auto_increment primary key,
+sala_chave varchar(80),
+solicitante_chave varchar(80),
+emailSolicitante_chave varchar(155),
+telefoneSolicitante_chave varchar(20),
+dataEHoraRetirada_chave  varchar(80),
+dataEHoraDevolucao_chave varchar(80)
+);
+
+create table tb_emprestimos(
+id_emprestimo int unsigned not null auto_increment primary key,
+nome_emprestimo varchar(80),
+quantidade_emprestimo varchar(15),
+solicitante_emprestimo varchar(80),
+emailSolicitante_emprestimo varchar(155),
+telefoneSolicitante_emprestimo varchar(20),
+dataEHoraRetirada_emprestimo  varchar(80),
+dataEHoraDevolucao_emprestimo varchar(80)
+);
+
+create table tb_relatorioProduto(
+id_relatorioprod int unsigned not null primary key auto_increment,
+nome_relatorioprod varchar(40),
+cadastrante_relatorioprod varchar (40),
+cod_relatorioprod varchar(30),
+quant_relatorioprod int
+);
+
+select * from tb_cadUsuario;
+
+select * from tb_relatorioProduto;
+
+drop table tb_relatorioProduto;
+
+insert Into UsersInfo(email_user,password_user) VALUES ('samuel', '123456');
+ 
+select*from tb_emprestimos;
+
+drop table tb_emprestimos;
